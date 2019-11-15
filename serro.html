@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Juego de la Baraja Americana</title>
+	<link rel="stylesheet" href="bootstrap.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+vectorImagen = [[0,0],[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12],[13,13],[14,1],[15,2],[16,3],[17,4],[18,5],[19,6],[20,7],[21,8],[22,9],[23,10],[24,11],[25,12],[26,13],[27,1],[28,2],[29,3],[30,4],[31,5],[32,6],[33,7],[34,8],[35,9],[36,10],[37,11],[38,12],[39,13],[40,1],[41,2],[42,3],[43,4],[44,5],[45,6],[46,7],[47,8],[48,9],[49,10],[50,11],[51,12]];
+
+			function imagenAleatoria(){
+    var i=0;
+				var datos="";
+				vectorImagen[i][0]=i+".JPG";
+			
+			var k=1;
+			for(i=0;i<52;i++){ 
+				vectorImagen[i][0]=k+".JPG";
+				k++;
+			}
+			var aux="";
+			for(i=0;i<=10;i++){
+				var aleatorio= Math.round(Math.random()*51)+1;
+				console.log(vectorImagen[i][0]);
+				aux=vectorImagen[i][0];
+				vectorImagen[i][0]=vectorImagen[aleatorio][0];
+				vectorImagen[aleatorio][0]=aux;
+			}
+			for(i=1;i<11;i++){
+				document.getElementById(i+"a").src="imagenes/"+vectorImagen[i][0]+".jpg";
+				document.getElementById(i+"a").data=vectorImagen[i][1];
+            }
+            evento();
+        }
+
+
+
+
+
+
+ function evento(){
+ 	
+ 
+  var tar= document.getElementById("1a").data;
+  var ter= document.getElementById("2a").data;
+  var tir= document.getElementById("3a").data;
+  var tor= document.getElementById("4a").data;
+  var tur= document.getElementById("5a").data;
+
+  var tar= document.getElementById("6a").data;
+  var ter= document.getElementById("7a").data;
+  var tir= document.getElementById("8a").data;
+  var tor= document.getElementById("9a").data;
+  var tur= document.getElementById("10a").data;
+  console.log(tar+""+ter+""+tir+""+tor+""+tur);
+  for(var i=0; i<=5; i++){
+if(tar=ter){
+//alert("par");
+} else if(tar=tir){
+//alert("par");
+} else if(tar=tor){
+//alert("par");
+} else if(tar=tur){
+//alert("par");
+}
+  }
+  }
+function limpiar(){
+	for(i=1; i<52;i++){
+		document.getElementById(i+"a").src="imagenes/0.JPG";
+	}
+}
+
+	</script>
+	
+	<style>
+		img{
+			width: 100px;
+		}
+
+	</style>
+</head>
+<body class="container">
+
+	<h1>Juego de la Baraja</h1><hr>
+	<div class="row">
+		<form>
+		<div class="col-md-2"><button class="btn btn-primary" type="button" onclick= "imagenAleatoria()">Dar imagenes</button></div>
+		<input type="button" value="limpiar" onclick="limpiar();"/>
+		<div class="col-md-4"></div>
+
+	
+				<h2>Jugada 1</h2><hr>
+				<table border="1">
+					<tr>
+
+						<td><img src="imagenes/0.JPG" id="1a" alt="0"></td>
+						<td><img src="imagenes/0.JPG" id="2a" alt="0"></td>
+						<td><img src="imagenes/0.JPG" id="3a" alt="0"></td>
+						<td><img src="imagenes/0.JPG" id="4a" alt="0"></td>
+					    <td><img src="imagenes/0.JPG" id="5a" alt="0"></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="col-md-12" style="margin-top: 20px">
+				<h2>Jugada 2</h2><hr>
+				<table border="1">
+					<tr>
+						<td><img src="imagenes/0.JPG" id="6a" alt="0"></td>
+						<td><img src="imagenes/0.JPG" id="7a" alt="0"></td>
+						<td><img src="imagenes/0.JPG" id="8a" alt="0"></td>
+						<td><img src="imagenes/0.JPG" id="9a" alt="0"></td>
+						<td><img src="imagenes/0.JPG" id="10a" alt="0"></td>
+						
+					</tr>
+
+					
+				</table>
+			</div>
+		</div>
+	</form>
+	</div>
+</body>
+</html>
